@@ -24,6 +24,7 @@ export const createBooking = async (req, res) => {
 export const getBookingById = async (req, res) => {
   const id = req.params.id;
   try {
+    const token = req.cookies.accessToken; 
     const book = await Booking.findById(id);
     if (!book) {
       return res.status(404).json({
@@ -35,6 +36,7 @@ export const getBookingById = async (req, res) => {
       success: true,
       message: 'Booking found',
       data: book,
+      token
     });
   } catch (err) {
     console.error(err);
@@ -49,10 +51,13 @@ export const getBookingById = async (req, res) => {
 export const getAllBookings = async (req, res) => {
   try {
     const books = await Booking.find();
+    const token = req.cookies.accessToken; 
+
     res.status(200).json({
       success: true,
       message: 'All bookings retrieved',
       data: books,
+      token
     });
   } catch (err) {
     console.error(err);
