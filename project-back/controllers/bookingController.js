@@ -1,13 +1,16 @@
 import Booking from '../models/booking.js';
 
-// create a new booking
+//create a booking
 export const createBooking = async (req, res) => {
   try {
+    const token = req.cookies.accessToken; 
+  
     const booking = await Booking.create(req.body);
     res.status(200).json({ 
       message: 'Booking created successfully',
       data: booking, 
-      success: true 
+      success: true ,
+      token
     });
   } catch (err) {
     res.status(500).json({
@@ -31,7 +34,7 @@ export const getBookingById = async (req, res) => {
     res.status(200).json({
       success: true,
       message: 'Booking found',
-      data: book
+      data: book,
     });
   } catch (err) {
     console.error(err);
@@ -49,7 +52,7 @@ export const getAllBookings = async (req, res) => {
     res.status(200).json({
       success: true,
       message: 'All bookings retrieved',
-      data: books
+      data: books,
     });
   } catch (err) {
     console.error(err);
