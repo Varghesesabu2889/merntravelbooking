@@ -1,7 +1,7 @@
 import React, { useContext, useState } from 'react';
 import './booking.css';
 import { Form, FormGroup, ListGroup, ListGroupItem, Button } from 'react-bootstrap';
-import { TextField } from '@mui/material'; // Changed import to named import
+import TextField from '@mui/material/TextField';
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import Swal from 'sweetalert2';
@@ -19,7 +19,7 @@ const Booking = ({ tour }) => {
     fullName: "",
     phone: "",
     guestSize: 1,
-    bookAt: new Date(), // Changed initial date state
+    bookAt: `${new Date()}`, 
   });
 
   const [errors, setErrors] = useState({
@@ -27,7 +27,7 @@ const Booking = ({ tour }) => {
     phone: false,
     bookAt: false,
     guestSize: false,
-    tourName: false
+    tourName:false
   });
 
   const handleChange = e => {
@@ -63,21 +63,20 @@ const Booking = ({ tour }) => {
         showLoginAlert();
         return;
       }
-      // const token = localStorage.getItem('accessToken');
-      // console.log("token",token);
+      const token = localStorage.getItem('accessToken');
+      console.log("token",token);
       const res = await fetch(`${BASE_URL}/booking`, {
         method: 'POST',
         headers:{
           "Content-Type":"application/json",
-          // "Authorization": `Bearer ${token}`,
+          "Authorization": `Bearer ${token}`,
         },
         credentials:'include',
         body:JSON.stringify(booking)
       });
       const result = await res.json();
       if (!res.ok) {
-        // throw new Error(result.message || 'Booking failed');
-        return alert(result.message)
+        throw new Error(result.message || 'Booking failed');
       }
       showAlert();
     } catch (err) {
