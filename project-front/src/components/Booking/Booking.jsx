@@ -63,20 +63,21 @@ const Booking = ({ tour }) => {
         showLoginAlert();
         return;
       }
-      const token = localStorage.getItem('accessToken');
-      console.log("token",token);
+      // const token = localStorage.getItem('accessToken');
+      // console.log("token",token);
       const res = await fetch(`${BASE_URL}/booking`, {
         method: 'POST',
         headers:{
           "Content-Type":"application/json",
-          "Authorization": `Bearer ${token}`,
+          // "Authorization": `Bearer ${token}`,
         },
         credentials:'include',
         body:JSON.stringify(booking)
       });
       const result = await res.json();
       if (!res.ok) {
-        throw new Error(result.message || 'Booking failed');
+        // throw new Error(result.message || 'Booking failed');
+        return alert(result.message)
       }
       showAlert();
     } catch (err) {
