@@ -12,7 +12,7 @@
 
 //   useEffect(() => { // Changed from useState to useEffect
 //     // Simulate fetching the payment intent client secret from your server
-//     fetch('http://localhost:4000/api/v1/payments/intent', {
+//     fetch('${BASE_URL}api/v1/payments/intent', {
 //       method: 'POST',
 //       headers: {
 //         'Content-Type': 'application/json',

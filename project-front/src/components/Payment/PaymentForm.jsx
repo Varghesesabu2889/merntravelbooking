@@ -17,7 +17,7 @@
 //     e.preventDefault();
 
 //     try {
-//       const { data } = await axios.post('http://localhost:4000/api/v1/payments/process', {
+//       const { data } = await axios.post('${BASE_URL}api/v1/payments/process', {
 //         client_secret: 'your_client_secret', // Replace with your actual client secret
 //         // Other payment data if needed
 //       });

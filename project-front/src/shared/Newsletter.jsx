@@ -1,7 +1,7 @@
 import React from 'react'
 import './newsletter.css'
 import {Container,Row,Col} from 'react-bootstrap'
-import femaleTourist from '../assets/images/smiley-woman-posing-her-baggage.png'
+import femaleTourist from '../assets/images/newa.png'
 import TextField from '@mui/material/TextField';
 import Swal from 'sweetalert2';
 
@@ -33,9 +33,9 @@ const Newsletter = () => {
                     </p>
                     </div>
                 </Col>
-            <Col lg='6'>
+            <Col lg='6' style={{marginTop:"15px"}}>
                 <div className="newsletter__img">
-                    <img src={femaleTourist} alt="" width={"300px"} height={"400px"} />
+                    <img src={femaleTourist} alt="" width={"10px"} height={"400px"}  />
                 </div>
             </Col>
 

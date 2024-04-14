@@ -2,7 +2,7 @@ import React from 'react'
 import './Footer.css'
 import {Container,Row,Col,ListGroup,ListGroupItem } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
-import logo from '../../assets/images/footer.png'
+import logo from '../../assets/images/logo.png'
 const quick__link = [
   {
     path: '/home',
