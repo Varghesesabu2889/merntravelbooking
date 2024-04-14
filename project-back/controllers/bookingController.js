@@ -36,7 +36,6 @@ export const getBookingById = async (req, res) => {
       success: true,
       message: 'Booking found',
       data: book,
-      token
     });
   } catch (err) {
     console.error(err);
