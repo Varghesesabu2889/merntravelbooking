@@ -32,6 +32,7 @@ const navigate = useNavigate();
 const {user,dispatch}= useContext(AuthContext);
 
 const logout =()=>{
+  
   dispatch({type:"LOGOUT"})
   navigate('/')
 }
@@ -88,6 +89,7 @@ const toggleMenu =()=> menuRef.current.classList.toggle('show__menu')
                   user? <>
                  <h5 className='mb-0'>{user.username}</h5> 
                  <Button className='btn danger__btn' onClick={logout}>Logout</Button>
+                 
                   </>:
                   <>
                   <Button className='btn secondary__btn' as={Link} to={'/login'}>
